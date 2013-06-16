@@ -1,0 +1,15 @@
+{
+    "contents" : "\\name{dVL}\n\\alias{dVL}\n%- Also NEED an '\\alias' for EACH other topic documented here.\n\\title{\nDistribution of diagonal and vertical lines\n}\n\\description{\nThis function is the workhorse of the RPqa package. It calculates the distribution of diagonal and vertical lines in a binary matrix. For the moment the Thieler window is not there, but I need to add it.\nThe underlying C function performes the work of evaluating the matrix and identifying the relevant elements.\nDiagonal and vertical elements are calculated one after the other, but room to get this done in parallel is there.\n}\n\\usage{\ndVL(RPMatrix, Thieler = 0)\n}\n\\arguments{\n  \\item{RPMatrix}{An input binary matrix}\n  \\item{Thieler}{The integer value of the Thieler window}\n  }\n\n\\details{\nThe procedure is calculating the the value of diagonal and vertical lines of all length in the upper-left part of the matrix. Data must be bunary. The LOI has to go from [N,1] to [1,N].\n}\n\\value{\n  \\item{distrLV }{A matrix of two rows containing the frequency of diagonal (first row) and vertical (second row) of a specific length. The length is in the name of the column.}\n}\n\\references{\n%% ~put references to the literature/web site here ~\n}\n\\author{\nNicola ZACCARELLI\n}\n\n%% ~Make other sections like Warning with \\section{Warning }{....} ~\n\n\\seealso{\n%% ~~objects to See Also as \\code{\\link{help}}, ~~~\n}\n\\examples{\n##---- Should be DIRECTLY executable !! ----\n##-- ==>  Define data, use random,\n##--\tor do  help(data=index)  for the standard data sets.\n\n## The function is currently defined as\nfunction (RPMatrix, Thieler = 0) \n{\n    stopifnot(length(Thieler) == 1, Thieler >= 0, Thieler == \n        floor(Thieler), class(RPMatrix) \\%in\\% c(\"matrix\"), dim(RMatrix)[1] == \n        dim(RMatrix)[2])\n    if (is.numeric(RMatrix[1, 1]) == FALSE) \n        stop(\"The matrix has to be numeric!\")\n    cat(\"IMPORTANT: the LOI must go from [N,1] to [1, N] \\n\")\n    num = dim(RPMatrix)[1]\n    dLV = matrix(0, 2, num)\n    distrLV <- .C(\"dVL\", D = as.integer(RPMatrix), N = as.integer(num), \n        T = as.integer(Theiler), dLV = as.integer(dLV), PACKAGE = \"RPqa\")$dLV\n    distrLV = as.matrix(distrLV, 2, num)\n    colnames(distrLV) = 0:num\n    delCol = colSums(distrLV) * (0:num)\n    distrLV[, -delCol]\n    distrLV[, -1]\n    rownames(distrLV) = c(\"Diagonal\", \"Vertical\")\n    return(distrLV)\n  }\n}\n% Add one or more standard keywords, see file 'KEYWORDS' in the\n% R documentation directory.\n\\keyword{ ~kwd1 }\n\\keyword{ ~kwd2 }% __ONLY ONE__ keyword per line\n",
+    "created" : 1371410848259.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "1280893725",
+    "id" : "BC1270F",
+    "lastKnownWriteTime" : 1346334806,
+    "path" : "~/GitHub/RPqa/RPqa/man/dVL.Rd",
+    "properties" : {
+    },
+    "source_on_save" : false,
+    "type" : "r_doc"
+}

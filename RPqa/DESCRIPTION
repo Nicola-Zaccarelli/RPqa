@@ -1,0 +1,13 @@
+Package: RPqa
+Type: Package
+Title: This package provides tools to create and quantitavely analyse RP, CRP and JRP.
+Version: 1.0
+Date: 2012-XX-XX
+Author: Nicola ZACCARELLI
+Maintainer: Nicola ZACCARELLI <nicola.zaccarelli@gmail.com>
+Description: This package provides tools to create and quantitavely analyse recurrence plots (RP),
+ cross-recurrene plots (CRP) and joint rcurrence plots (JRP) applying standard nonlinear techniques
+ for time series. The package allows to embedded the time series, and specify relevant parameter for
+ a complete analysis of recurrence in the new state space, along with bootstrap evaluation of some
+ of the quantitative indices.
+License: GPL-2

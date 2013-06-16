@@ -1,0 +1,15 @@
+{
+    "contents" : "exportPattern(\"^[[:alpha:]]+\")\n",
+    "created" : 1371410801652.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "4116331488",
+    "id" : "EFC01F94",
+    "lastKnownWriteTime" : 1346333746,
+    "path" : "~/GitHub/RPqa/RPqa/NAMESPACE",
+    "properties" : {
+    },
+    "source_on_save" : false,
+    "type" : "r_namespace"
+}

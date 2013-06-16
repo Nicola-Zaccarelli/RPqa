@@ -1,0 +1,15 @@
+draw2d = function(data, title="Title"){
+def.par <- par(no.readonly = TRUE)
+layout(matrix(c(1,0, 2,3), 2, 2, byrow = TRUE))
+plot(dati[, 1:3], type="n",  ylab=expression(x(t+2*tau)), xlab=expression(x(t)),  asp=1)
+lines(dati[, 1:3], col="grey75")
+points(dati[, 1:3], col=rainbow(23), pch=16)
+plot(dati[, 1:2], type="n", xlab=expression(x(t)), ylab=expression(x(t+tau)), asp=1)
+lines(dati[, 1:2], col="grey75")
+points(dati[, 1:2], col=rainbow(23), pch=16)
+plot(dati[, 3:2], type="n",  xlab=expression(x(t+2*tau)), asp=1, ylab=expression(x(t+tau))) 
+lines(dati[, 3:2], col="grey75")
+points(dati[, 3:2], col=rainbow(23), pch=16)
+par(def.par)
+title(main=title)
+}
